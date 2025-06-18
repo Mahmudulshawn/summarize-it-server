@@ -2,9 +2,10 @@ import express from "express";
 import summarizeRoute from "./routes/summarize.js";
 import rateLimit from "express-rate-limit";
 import cors from "cors";
-import dotenv from "dotenv";
+import { PORT } from "./config/env.js";
+// import dotenv from "dotenv";
 
-dotenv.config();
+// dotenv.config();
 
 const app = express();
 
@@ -35,7 +36,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: "Internal Server Error" });
 });
 
-const PORT = process.env.PORT || 3000;
+// const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
