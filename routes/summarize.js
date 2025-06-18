@@ -1,10 +1,9 @@
 import { GoogleGenAI } from "@google/genai";
 import { Router } from "express";
-import { GEMINI_API_KEY } from "../config/env.js";
 
 const summarizeRoute = Router();
 
-const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 summarizeRoute.post("/", async (req, res) => {
   const { pageText } = req.body;
