@@ -24,12 +24,12 @@ const globalLimiter = rateLimit({
 app.use(globalLimiter);
 
 app.get("/", (req, res) => {
-  res.send("HELLO WORLD");
+  res.json({ message: "Welcome to the Summarization API" });
 });
 
-// app.use((req, res) => {
-//   res.status(404).json({ message: "Not Found" });
-// });
+app.use((req, res) => {
+  res.status(404).json({ message: "Not Found" });
+});
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
