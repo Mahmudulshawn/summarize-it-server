@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 // routes
-app.use("/api/v1/summarize", summarizeRoute);
+app.use("/api/v1", summarizeRoute);
 
 // limit the number of requests to the summarize endpoint
 const globalLimiter = rateLimit({
